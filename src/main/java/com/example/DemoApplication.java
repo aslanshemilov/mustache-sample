@@ -40,7 +40,7 @@ public class DemoApplication extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/login", "/error").permitAll()
+		http.authorizeRequests().antMatchers("/login", "/error", "/webjars/**", "/favicon.ico").permitAll()
 				.antMatchers("/**").authenticated().and().exceptionHandling()
 				.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login"));
 	}
